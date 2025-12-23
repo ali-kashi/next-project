@@ -1,6 +1,6 @@
 import ProductsList from "./components/ProductsList";
 
-export const revalidate = 60;
+export const revalidate = 60; // ISR: هر 60 ثانیه کش مجدد
 
 export function generateMetadata() {
   return {
@@ -14,21 +14,19 @@ export function generateMetadata() {
 }
 
 async function getProducts() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const baseUrl = process.env.API_BASE_URL; // ← تغییر داده شده
 
   if (!baseUrl) {
-    console.error("❌ BASE_URL is not defined");
+    console.error("❌ API_BASE_URL is not defined");
     return [];
   }
 
   try {
     const res = await fetch(`${baseUrl}/api/products`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60 }, // ISR
     });
 
-    if (!res.ok) {
-      throw new Error(`API failed: ${res.status}`);
-    }
+    if (!res.ok) throw new Error(`API failed: ${res.status}`);
 
     return await res.json();
   } catch (err) {
