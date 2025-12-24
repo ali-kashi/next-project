@@ -4,9 +4,9 @@ export const revalidate = 60;
 
 const APIS = [
   {
-      name: "fakestoreapi-electronics",
-      url: "https://fakestoreapi.com/products/category/electronics?limit=8",
-      pick: (d) => d,
+    name: "dummyjson-laptops",
+    url: "https://dummyjson.com/products/category/laptops?limit=8",
+    pick: (d) => d.products,
   },
   {
     name: "fakestoreapi",
