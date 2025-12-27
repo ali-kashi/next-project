@@ -16,7 +16,7 @@ console.log("CartContexts in Cart.jsx:", context);
               <button onClick={ ()=>{addToCart(product)
               alert("product add "+ product.title)
             }}>Add to Card</button>
-              <Link href={`${product.id}`}>view more</Link>
+              <Link href={`products/${product.id}`}>view more</Link>
         </div>
     )
 }

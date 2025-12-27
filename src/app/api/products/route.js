@@ -4,8 +4,8 @@ export const revalidate = 60;
 
 const APIS = [
   {
-    name: "dummyjson-laptops",
-    url: "https://dummyjson.com/products/category/laptops?limit=8",
+    name: "dummyjson-smartphones",
+    url: "https://dummyjson.com/products/category/smartphones",
     pick: (d) => d.products,
   },
   {
